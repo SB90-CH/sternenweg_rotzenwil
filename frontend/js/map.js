@@ -21,23 +21,31 @@ L.tileLayer(
 
 // Posten laden
 fetch("data/posten.json")
+
     .then(response => {
 
         if (!response.ok) {
-            throw new Error("posten.json konnte nicht geladen werden.");
+            throw new Error(
+                "posten.json konnte nicht geladen werden."
+            );
         }
 
         return response.json();
+
     })
 
     .then(posten => {
 
+        // Gruppe für alle Marker erstellen
         const markerGroup = L.featureGroup();
 
+
+        // Für jeden Posten einen Marker erstellen
         posten.forEach(punkt => {
 
-            // Eigenen nummerierten Marker erzeugen
+            // Nummerierten Marker erzeugen
             const postenIcon = L.divIcon({
+
                 className: "posten-marker-wrapper",
 
                 html: `
@@ -47,44 +55,56 @@ fetch("data/posten.json")
                 `,
 
                 iconSize: [48, 48],
+
                 iconAnchor: [24, 24],
+
                 popupAnchor: [0, -24]
-});
+
+            });
 
 
-// Marker erstellen
-const marker = L.marker(
-    [punkt.lat, punkt.lng],
-    {
-        icon: postenIcon
-    }
-);
+            // Marker erstellen
+            const marker = L.marker(
+                [punkt.lat, punkt.lng],
+                {
+                    icon: postenIcon
+                }
+            );
 
 
-// Popup erstellen
-marker.bindPopup(`
-    <a
-        href="#posten-${punkt.nummer}"
-        class="posten-popup-link"
-    >
-        <strong>Posten ${punkt.nummer}</strong>
-        <span>${punkt.name}</span>
-        <small>Zum Posten →</small>
-    </a>
-`);
+            // Popup erstellen
+            marker.bindPopup(`
+                <a
+                    href="#posten-${punkt.nummer}"
+                    class="posten-popup-link"
+                >
+                    <strong>
+                        Posten ${punkt.nummer}
+                    </strong>
+
+                    <span>
+                        ${punkt.name}
+                    </span>
+
+                    <small>
+                        Zum Posten →
+                    </small>
+                </a>
+            `);
 
 
-// Marker zur Gruppe hinzufügen
-marker.addTo(markerGroup);
+            // Marker zur Gruppe hinzufügen
+            marker.addTo(markerGroup);
 
         });
 
 
-        // Marker anzeigen
+        // Alle Marker auf der Karte anzeigen
         markerGroup.addTo(map);
 
 
-        // Kartenausschnitt automatisch bestimmen
+        // Kartenausschnitt automatisch so einstellen,
+        // dass alle Marker sichtbar sind
         map.fitBounds(
             markerGroup.getBounds(),
             {
