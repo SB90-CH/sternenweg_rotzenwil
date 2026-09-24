@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 return response.json();
+
             })
 
             .then(posten => {
 
-                // Vorhandenen Beispielinhalt entfernen
+                // Vorhandenen Inhalt entfernen
                 postenContainer.innerHTML = "";
 
 
@@ -57,26 +58,57 @@ document.addEventListener("DOMContentLoaded", () => {
                         `posten-${punkt.nummer}`;
 
 
+                    // Bildpfad automatisch aus der
+                    // Postennummer erstellen
+                    const bildPfad =
+                        `images/posten/posten-${punkt.nummer}.jpg`;
+
+
                     postenCard.innerHTML = `
-                        <span class="posten-nummer">
-                            Posten ${punkt.nummer}
-                        </span>
 
-                        <h3>
-                            ${punkt.name}
-                        </h3>
+                        <img
+                            src="${bildPfad}"
+                            alt="${punkt.name}"
+                            class="posten-bild"
+                        >
 
-                        ${
-                            punkt.beschreibung
-                                ? `<p>${punkt.beschreibung}</p>`
-                                : `<p>Weitere Informationen folgen.</p>`
-                        }
+                        <div class="posten-inhalt">
+
+                            <span class="posten-nummer">
+                                Posten ${punkt.nummer}
+                            </span>
+
+                            <h3>
+                                ${punkt.name}
+                            </h3>
+
+                            ${
+                                punkt.beschreibung
+                                    ? `<p>${punkt.beschreibung}</p>`
+                                    : `<p>Weitere Informationen folgen.</p>`
+                            }
+
+                        </div>
                     `;
 
 
+                    // Karte zur Seite hinzufügen
                     postenContainer.appendChild(
                         postenCard
                     );
+
+
+                    // -------------------------------------------------
+                    // Falls kein Bild existiert:
+                    // Bild automatisch ausblenden
+                    // -------------------------------------------------
+
+                    const bild =
+                        postenCard.querySelector(".posten-bild");
+
+                    bild.addEventListener("error", () => {
+                        bild.remove();
+                    });
 
                 });
 
