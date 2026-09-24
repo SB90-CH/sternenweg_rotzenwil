@@ -60,6 +60,22 @@ fetch("data/posten.json")
                 }
             );
 
+            marker.on("click", () => {
+
+                const ziel =
+                    document.getElementById(
+                        `posten-${punkt.nummer}`
+                );
+
+                if (ziel) {
+                    ziel.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+
+});
+
 
             // Popup
             marker.bindPopup(`
