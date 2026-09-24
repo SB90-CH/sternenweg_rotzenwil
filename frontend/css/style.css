@@ -334,32 +334,31 @@ footer {
 
    
 /* =========================================================
-   MARKER DER POSTEN
+   MARKER DER KARTE
    ========================================================= */
 
-.leaflet-div-icon.posten-marker-container {
-    background: transparent;
-    border: none;
-}
 
-.posten-marker-container {
+/* Leaflet-Container des eigenen Markers */
+.posten-marker-wrapper {
     background: transparent !important;
     border: none !important;
 }
 
-.posten-marker {
-    width: 42px !important;
-    height: 42px !important;
 
-    display: flex !important;
+/* Sichtbarer Kreis */
+.posten-marker {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #f4c95d !important;
-    color: #0b1f33 !important;
+    background-color: #f4c95d;
+    color: #0b1f33;
 
-    border: 3px solid #ffffff !important;
-    border-radius: 50% !important;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
 
     font-size: 16px;
     font-weight: 700;
@@ -374,7 +373,9 @@ footer {
         background-color 0.2s ease;
 }
 
+
+/* Marker beim Darüberfahren */
 .posten-marker:hover {
     transform: scale(1.15);
-    background: #ffd873 !important;
+    background-color: #ffd873;
 }
