@@ -38,29 +38,18 @@ fetch("data/posten.json")
 
             // Eigenen nummerierten Marker erzeugen
             const postenIcon = L.divIcon({
-                className: "",
+                className: "posten-marker-wrapper",
+
                 html: `
-                    <div style="
-                        width: 42px;
-                        height: 42px;
-                        background-color: #f4c95d;
-                        color: #0b1f33;
-                        border: 3px solid white;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 16px;
-                        font-weight: bold;
-                        box-shadow: 0 3px 10px rgba(0,0,0,0.35);
-                    ">
+                    <div class="posten-marker">
                         ${punkt.nummer}
                     </div>
                 `,
-                iconSize: [42, 42],
-                iconAnchor: [21, 21],
-                popupAnchor: [0, -22]
-            });
+
+                iconSize: [48, 48],
+                iconAnchor: [24, 24],
+                popupAnchor: [0, -24]
+});
 
 
             // Marker erstellen
