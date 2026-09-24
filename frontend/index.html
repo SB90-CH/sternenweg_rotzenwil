@@ -1,15 +1,235 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
+
+    <meta name="description"
+          content="Entdecke den Sternenweg Rotzenwil – ein Erlebnisweg mit verschiedenen Posten rund um die Welt der Sterne.">
+
+    <title>Sternenweg Rotzenwil</title>
+
+    <!-- Eigenes CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <!-- Hier kommt der sichtbare Inhalt der Webseite hin -->
-    <h1>Hallo Welt!</h1>
-    <p>Willkommen auf meiner neuen Webseite.</p>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header>
+        <nav class="navbar">
+
+            <a href="#start" class="logo">
+                ✦ Sternenweg Rotzenwil
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#start">Start</a></li>
+                <li><a href="#sternweg">Der Sternenweg</a></li>
+                <li><a href="#karte">Karte</a></li>
+                <li><a href="#posten">Posten</a></li>
+                <li><a href="#impressionen">Impressionen</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             STARTSEITE / HERO
+        ========================== -->
+        <section id="start" class="hero">
+
+            <div class="hero-content">
+                <p class="hero-kicker">Willkommen auf dem</p>
+
+                <h1>Sternenweg Rotzenwil</h1>
+
+                <p>
+                    Entdecke den Sternenweg und seine verschiedenen Posten.
+                    Erlebe die faszinierende Welt der Sterne und geniesse
+                    einen besonderen Weg durch die Natur.
+                </p>
+
+                <a href="#karte" class="button">
+                    Sternenweg entdecken
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DER STERNENWEG
+        ========================== -->
+        <section id="sternweg" class="section">
+
+            <div class="container">
+
+                <h2>Der Sternenweg</h2>
+
+                <p>
+                    Der Sternenweg Rotzenwil führt dich auf einem abwechslungsreichen
+                    Weg durch die Umgebung. Entlang der Route warten verschiedene
+                    Posten darauf, entdeckt zu werden.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+                        <h3>📍 Start</h3>
+                        <p>Rotzenwil</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🥾 Strecke</h3>
+                        <p>Information folgt</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⏱ Dauer</h3>
+                        <p>Information folgt</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⭐ Posten</h3>
+                        <p>Mehrere Erlebnisposten entlang des Weges</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             KARTE
+        ========================== -->
+        <section id="karte" class="section section-alt">
+
+            <div class="container">
+
+                <h2>Karte</h2>
+
+                <p>
+                    Auf der Karte findest du den Verlauf des Sternenwegs
+                    sowie die einzelnen Posten.
+                </p>
+
+                <!-- Hier bauen wir später die interaktive Karte ein -->
+                <div id="map">
+                    <p>Die interaktive Karte wird hier angezeigt.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             POSTEN
+        ========================== -->
+        <section id="posten" class="section">
+
+            <div class="container">
+
+                <h2>Die Posten</h2>
+
+                <p>
+                    Entdecke die verschiedenen Stationen entlang des Sternenwegs.
+                </p>
+
+                <!--
+                    Diese Posten werden wir später automatisch
+                    aus data/posten.json laden.
+                -->
+                <div id="posten-container">
+
+                    <div class="posten-card">
+                        <h3>Posten 1</h3>
+                        <p>Weitere Informationen folgen.</p>
+                    </div>
+
+                    <div class="posten-card">
+                        <h3>Posten 2</h3>
+                        <p>Weitere Informationen folgen.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             IMPRESSIONEN
+        ========================== -->
+        <section id="impressionen" class="section section-alt">
+
+            <div class="container">
+
+                <h2>Impressionen</h2>
+
+                <p>
+                    Bilder vom Sternenweg und seiner Umgebung folgen hier.
+                </p>
+
+                <div class="gallery">
+                    <!-- Bilder fügen wir später ein -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             KONTAKT
+        ========================== -->
+        <section id="kontakt" class="section">
+
+            <div class="container">
+
+                <h2>Kontakt</h2>
+
+                <p>
+                    Hast du Fragen zum Sternenweg Rotzenwil?
+                    Hier werden später die Kontaktinformationen eingefügt.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span> Sternenweg Rotzenwil
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Eigenes JavaScript -->
+    <script src="js/main.js"></script>
 
 </body>
 </html>
