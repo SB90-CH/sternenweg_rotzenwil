@@ -331,31 +331,39 @@ footer {
     .gallery {
         grid-template-columns: 1fr;
     }
+
+   
 /* =========================================================
    MARKER DER POSTEN
    ========================================================= */
 
-.posten-marker-container {
+.leaflet-div-icon.posten-marker-container {
     background: transparent;
     border: none;
 }
 
-.posten-marker {
-    width: 42px;
-    height: 42px;
+.posten-marker-container {
+    background: transparent !important;
+    border: none !important;
+}
 
-    display: flex;
+.posten-marker {
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
     align-items: center;
     justify-content: center;
 
-    background-color: #f4c95d;
-    color: #0b1f33;
+    background: #f4c95d !important;
+    color: #0b1f33 !important;
 
-    border: 3px solid #ffffff;
-    border-radius: 50%;
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
 
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
+    line-height: 1;
 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
 
@@ -368,7 +376,5 @@ footer {
 
 .posten-marker:hover {
     transform: scale(1.15);
-    background-color: #ffd873;
-}
-   
+    background: #ffd873 !important;
 }
