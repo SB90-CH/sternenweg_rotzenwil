@@ -346,6 +346,8 @@ header {
 
     box-shadow:
         0 4px 15px rgba(0, 0, 0, 0.06);
+
+    scroll-margin-top: 100px;
 }
 
 .posten-card h3 {
@@ -463,4 +465,42 @@ footer {
         height: 400px;
     }
 
+}
+
+/* =========================================================
+   POPUP DER KARTENMARKER
+   ========================================================= */
+
+.posten-popup-link {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 140px;
+
+    color: #0b1f33;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.posten-popup-link strong {
+    font-size: 16px;
+    color: #123a5a;
+}
+
+.posten-popup-link span {
+    margin-top: 3px;
+}
+
+.posten-popup-link small {
+    margin-top: 10px;
+
+    color: #9a7415;
+
+    font-weight: bold;
+}
+
+.posten-popup-link:hover small {
+    text-decoration: underline;
 }
