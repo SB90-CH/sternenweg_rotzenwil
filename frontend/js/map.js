@@ -52,46 +52,30 @@ fetch("data/posten.json")
 });
 
 
-            // Marker erstellen
-            const marker = L.marker(
-                [punkt.lat, punkt.lng],
-                {
-                    icon: postenIcon
-                }
-            );
-
-            marker.on("click", () => {
-
-                const ziel =
-                    document.getElementById(
-                        `posten-${punkt.nummer}`
-                );
-
-                if (ziel) {
-                    ziel.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-                }
-
-});
+// Marker erstellen
+const marker = L.marker(
+    [punkt.lat, punkt.lng],
+    {
+        icon: postenIcon
+    }
+);
 
 
-            // Popup
-            marker.bindPopup(`
-                <strong>Posten ${punkt.nummer}</strong>
-                <br>
-                ${punkt.name}
+// Popup erstellen
+marker.bindPopup(`
+    <a
+        href="#posten-${punkt.nummer}"
+        class="posten-popup-link"
+    >
+        <strong>Posten ${punkt.nummer}</strong>
+        <span>${punkt.name}</span>
+        <small>Zum Posten →</small>
+    </a>
+`);
 
-                ${
-                    punkt.beschreibung
-                        ? `<br><br>${punkt.beschreibung}`
-                        : ""
-                }
-            `);
 
-
-            marker.addTo(markerGroup);
+// Marker zur Gruppe hinzufügen
+marker.addTo(markerGroup);
 
         });
 
