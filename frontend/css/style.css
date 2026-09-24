@@ -331,5 +331,44 @@ footer {
     .gallery {
         grid-template-columns: 1fr;
     }
+/* =========================================================
+   MARKER DER POSTEN
+   ========================================================= */
 
+.posten-marker-container {
+    background: transparent;
+    border: none;
+}
+
+.posten-marker {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f4c95d;
+    color: #0b1f33;
+
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.posten-marker:hover {
+    transform: scale(1.15);
+    background-color: #ffd873;
+}
+   
 }
