@@ -4,33 +4,23 @@
 // =========================================================
 
 
-// ---------------------------------------------------------
 // Karte erstellen
-// ---------------------------------------------------------
-
 const map = L.map("map");
 
 
-// ---------------------------------------------------------
-// OpenStreetMap als Kartenhintergrund
-// ---------------------------------------------------------
-
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-
-    maxZoom: 19,
-
-    attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-
-}).addTo(map);
+// OpenStreetMap laden
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        maxZoom: 19,
+        attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+).addTo(map);
 
 
-// ---------------------------------------------------------
-// Posten aus posten.json laden
-// ---------------------------------------------------------
-
+// Posten laden
 fetch("data/posten.json")
-
     .then(response => {
 
         if (!response.ok) {
@@ -38,51 +28,56 @@ fetch("data/posten.json")
         }
 
         return response.json();
-
     })
 
     .then(posten => {
 
-        // Gruppe für alle Marker
         const markerGroup = L.featureGroup();
-
-
-        // -------------------------------------------------
-        // Für jeden Posten einen Marker erstellen
-        // -------------------------------------------------
 
         posten.forEach(punkt => {
 
-            // Eigenes Icon für den Posten
-const postenIcon = L.divIcon({
+            // Eigenen nummerierten Marker erzeugen
+            const postenIcon = L.divIcon({
+                className: "",
+                html: `
+                    <div style="
+                        width: 42px;
+                        height: 42px;
+                        background-color: #f4c95d;
+                        color: #0b1f33;
+                        border: 3px solid white;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 16px;
+                        font-weight: bold;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+                    ">
+                        ${punkt.nummer}
+                    </div>
+                `,
+                iconSize: [42, 42],
+                iconAnchor: [21, 21],
+                popupAnchor: [0, -22]
+            });
 
-    className: "posten-marker-container",
 
-    html: `
-        <div class="posten-marker">
-            ${punkt.nummer}
-        </div>
-    `,
-
-    iconSize: [42, 42],
-    iconAnchor: [21, 21],
-    popupAnchor: [0, -22]
-
-});
+            // Marker erstellen
+            const marker = L.marker(
+                [punkt.lat, punkt.lng],
+                {
+                    icon: postenIcon
+                }
+            );
 
 
-// Marker erstellen
-const marker = L.marker(
-    [punkt.lat, punkt.lng],
-    {
-        icon: postenIcon
-    }
-);
-
-            // Inhalt des Popups
+            // Popup
             marker.bindPopup(`
-                <strong>Posten ${punkt.nummer}</strong><br>
+                <strong>Posten ${punkt.nummer}</strong>
+                <br>
                 ${punkt.name}
+
                 ${
                     punkt.beschreibung
                         ? `<br><br>${punkt.beschreibung}`
@@ -96,14 +91,11 @@ const marker = L.marker(
         });
 
 
-        // Marker auf die Karte setzen
+        // Marker anzeigen
         markerGroup.addTo(map);
 
 
-        // -------------------------------------------------
-        // Karte automatisch auf alle Posten ausrichten
-        // -------------------------------------------------
-
+        // Kartenausschnitt automatisch bestimmen
         map.fitBounds(
             markerGroup.getBounds(),
             {
