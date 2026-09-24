@@ -53,11 +53,31 @@ fetch("data/posten.json")
 
         posten.forEach(punkt => {
 
-            const marker = L.marker([
-                punkt.lat,
-                punkt.lng
-            ]);
+            // Eigenes Icon für den Posten
+const postenIcon = L.divIcon({
 
+    className: "posten-marker-container",
+
+    html: `
+        <div class="posten-marker">
+            ${punkt.nummer}
+        </div>
+    `,
+
+    iconSize: [42, 42],
+    iconAnchor: [21, 21],
+    popupAnchor: [0, -22]
+
+});
+
+
+// Marker erstellen
+const marker = L.marker(
+    [punkt.lat, punkt.lng],
+    {
+        icon: postenIcon
+    }
+);
 
             // Inhalt des Popups
             marker.bindPopup(`
