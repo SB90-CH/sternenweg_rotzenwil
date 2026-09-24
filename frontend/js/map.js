@@ -26,119 +26,78 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 
 // ---------------------------------------------------------
-// Posten des Sternenwegs
+// Posten aus posten.json laden
 // ---------------------------------------------------------
 
-const posten = [
+fetch("data/posten.json")
 
-    {
-        nummer: 1,
-        name: "Posten 1",
-        lat: 47.5139963,
-        lng: 9.2891543
-    },
+    .then(response => {
 
-    {
-        nummer: 2,
-        name: "Posten 2",
-        lat: 47.5149390,
-        lng: 9.2937150
-    },
+        if (!response.ok) {
+            throw new Error("posten.json konnte nicht geladen werden.");
+        }
 
-    {
-        nummer: 3,
-        name: "Posten 3",
-        lat: 47.5159114,
-        lng: 9.2864308
-    },
+        return response.json();
 
-    {
-        nummer: 4,
-        name: "Posten 4",
-        lat: 47.5186137,
-        lng: 9.2847952
-    },
+    })
 
-    {
-        nummer: 5,
-        name: "Posten 5",
-        lat: 47.5190610,
-        lng: 9.2870864
-    },
+    .then(posten => {
 
-    {
-        nummer: 6,
-        name: "Posten 6",
-        lat: 47.5192892,
-        lng: 9.2902833
-    },
-
-    {
-        nummer: 7,
-        name: "Posten 7",
-        lat: 47.5180887,
-        lng: 9.2917702
-    },
-
-    {
-        nummer: 8,
-        name: "Posten 8",
-        lat: 47.5162994,
-        lng: 9.2934937
-    },
-
-    {
-        nummer: 9,
-        name: "Posten 9",
-        lat: 47.5145557,
-        lng: 9.2914390
-    },
-
-    {
-        nummer: 10,
-        name: "Posten 10",
-        lat: 47.5149345,
-        lng: 9.2962445
-    }
-
-];
+        // Gruppe für alle Marker
+        const markerGroup = L.featureGroup();
 
 
-// ---------------------------------------------------------
-// Marker erstellen
-// ---------------------------------------------------------
+        // -------------------------------------------------
+        // Für jeden Posten einen Marker erstellen
+        // -------------------------------------------------
 
-const markerGroup = L.featureGroup();
+        posten.forEach(punkt => {
 
-posten.forEach(posten => {
-
-    const marker = L.marker([
-        posten.lat,
-        posten.lng
-    ]);
-
-    marker.bindPopup(`
-        <strong>${posten.name}</strong>
-        <br>
-        Sternenweg Rotzenwil
-    `);
-
-    marker.addTo(markerGroup);
-
-});
+            const marker = L.marker([
+                punkt.lat,
+                punkt.lng
+            ]);
 
 
-// Marker-Gruppe zur Karte hinzufügen
-markerGroup.addTo(map);
+            // Inhalt des Popups
+            marker.bindPopup(`
+                <strong>Posten ${punkt.nummer}</strong><br>
+                ${punkt.name}
+                ${
+                    punkt.beschreibung
+                        ? `<br><br>${punkt.beschreibung}`
+                        : ""
+                }
+            `);
 
 
-// ---------------------------------------------------------
-// Karte automatisch auf alle Posten ausrichten
-// ---------------------------------------------------------
+            marker.addTo(markerGroup);
 
-map.fitBounds(
-    markerGroup.getBounds(),
-    {
-        padding: [40, 40]
-    }
-);
+        });
+
+
+        // Marker auf die Karte setzen
+        markerGroup.addTo(map);
+
+
+        // -------------------------------------------------
+        // Karte automatisch auf alle Posten ausrichten
+        // -------------------------------------------------
+
+        map.fitBounds(
+            markerGroup.getBounds(),
+            {
+                padding: [40, 40]
+            }
+        );
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Fehler beim Laden der Posten:",
+            error
+        );
+
+    });
