@@ -2,8 +2,8 @@
     {
         "nummer": 1,
         "name": "Posten 1",
-        "lat": 47.5139963,
-        "lng": 9.2891543,
+        "lat": 47.5149345,
+        "lng": 9.2962445,
         "beschreibung": ""
     },
     {
@@ -16,57 +16,64 @@
     {
         "nummer": 3,
         "name": "Posten 3",
-        "lat": 47.5159114,
-        "lng": 9.2864308,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 4,
-        "name": "Posten 4",
-        "lat": 47.5186137,
-        "lng": 9.2847952,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 5,
-        "name": "Posten 5",
-        "lat": 47.5190610,
-        "lng": 9.2870864,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 6,
-        "name": "Posten 6",
-        "lat": 47.5192892,
-        "lng": 9.2902833,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 7,
-        "name": "Posten 7",
-        "lat": 47.5180887,
-        "lng": 9.2917702,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 8,
-        "name": "Posten 8",
-        "lat": 47.5162994,
-        "lng": 9.2934937,
-        "beschreibung": ""
-    },
-    {
-        "nummer": 9,
-        "name": "Posten 9",
         "lat": 47.5145557,
         "lng": 9.2914390,
         "beschreibung": ""
     },
     {
+        "nummer": 4,
+        "name": "Posten 4",
+        "lat": 47.5139963,
+        "lng": 9.2891543,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 5,
+        "name": "Posten 5",
+        "lat": 47.516240776380876,
+        "lng": 9.285581305388785,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 6,
+        "name": "Posten 6",
+        "lat": 47.51613930887596,
+        "lng": 9.284765922076827,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 7,
+        "name": "Posten 7",
+        "lat": 47.5186137,
+        "lng": 9.2847952,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 8,
+        "name": "Posten 8",
+        "lat": 47.5190610,
+        "lng": 9.2870864,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 9,
+        "name": "Posten 9",
+        "lat": 47.5192892,
+        "lng": 9.2902833,
+        "beschreibung": ""
+    },
+    {
         "nummer": 10,
         "name": "Posten 10",
-        "lat": 47.5149345,
-        "lng": 9.2962445,
+        "lat": 47.5180887,
+        "lng": 9.2917702,
+        "beschreibung": ""
+    },
+    {
+        "nummer": 11,
+        "name": "Posten 11",
+        "lat": 47.5162994,
+        "lng": 9.2934937,
         "beschreibung": ""
     }
 ]
