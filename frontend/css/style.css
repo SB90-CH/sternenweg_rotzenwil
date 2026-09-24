@@ -335,8 +335,6 @@ header {
 }
 
 .posten-card {
-    padding: 30px;
-
     background-color: #ffffff;
 
     border:
@@ -344,11 +342,33 @@ header {
 
     border-radius: 12px;
 
+    overflow: hidden;
+
     box-shadow:
         0 4px 15px rgba(0, 0, 0, 0.06);
 
     scroll-margin-top: 100px;
 }
+
+
+/* Bild eines Postens */
+
+.posten-bild {
+    width: 100%;
+    height: 280px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Textbereich eines Postens */
+
+.posten-inhalt {
+    padding: 30px;
+}
+
 
 .posten-card h3 {
     color: #123a5a;
