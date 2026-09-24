@@ -10,8 +10,15 @@
 
     <title>Sternenweg Rotzenwil</title>
 
+    <!-- Leaflet CSS für die interaktive Karte -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
     <!-- Eigenes CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
@@ -124,9 +131,7 @@
                 </p>
 
                 <!-- Hier bauen wir später die interaktive Karte ein -->
-                <div id="map">
-                    <p>Die interaktive Karte wird hier angezeigt.</p>
-                </div>
+                <div id="map"></div>
 
             </div>
 
@@ -228,8 +233,14 @@
     </footer>
 
 
-    <!-- Eigenes JavaScript -->
+    <!-- Leaflet JavaScript -->
+    <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Eigene JavaScript-Dateien -->
     <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
 
 </body>
 </html>
