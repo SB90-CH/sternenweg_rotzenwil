@@ -524,3 +524,33 @@ footer {
 .posten-popup-link:hover small {
     text-decoration: underline;
 }
+
+
+/* Parkplatzmarker: blau mit weissem P, unabhängig von Postennummern */
+.parkplatz-marker-wrapper {
+    background: transparent !important;
+    border: none !important;
+}
+.parkplatz-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background: #1769c2;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+.parkplatz-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 150px;
+}
+.parkplatz-popup strong { color: #123a5a; }
+.parkplatz-popup a { color: #1769c2; font-weight: bold; }
