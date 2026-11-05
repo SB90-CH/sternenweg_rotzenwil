@@ -540,3 +540,65 @@ footer {
 }
 .parkplatz-popup strong { color: #123a5a; }
 .parkplatz-popup a { color: #1769c2; font-weight: bold; }
+
+/* Eigenständige Parkplatz-Unterseite */
+.parking-hero {
+    background: linear-gradient(135deg, #071426, #123a5a);
+    color: #fff;
+    padding: 90px 0;
+}
+.parking-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.parking-hero p:not(.hero-kicker) {
+    max-width: 740px;
+    font-size: 1.1rem;
+}
+.parking-hero .button {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 13px 24px;
+    background: #f4c95d;
+    color: #0b1f33;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+.parking-card {
+    background: #fff;
+    border: 1px solid #e2e8ec;
+    border-radius: 12px;
+    padding: 26px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+.parking-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: #1769c2;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+.parking-card h3 { color: #123a5a; margin-bottom: 8px; }
+.parking-card p { margin-bottom: 18px; }
+.parking-card a { color: #1769c2; font-weight: bold; }
+.nav-links a[aria-current="page"] { color: #f4c95d; }
+@media (max-width: 900px) {
+    .parking-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+    .parking-grid { grid-template-columns: 1fr; }
+    .parking-hero { padding: 65px 0; }
+}
