@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             capacity.textContent = `${parkplatz.anzahl_plaetze} ${parkplatz.anzahl_plaetze === 1 ? "Stellplatz" : "Stellplätze"}`;
 
             const description = document.createElement("p");
-            description.textContent = parkplatz.beschreibung || "Standort und Anreise auf der Karte ansehen.";
+            description.textContent = parkplatz.beschreibung || "";
 
             let url = `https://www.openstreetmap.org/?mlat=${parkplatz.lat}&mlon=${parkplatz.lng}#map=18/${parkplatz.lat}/${parkplatz.lng}`;
             if (parkplatz.link) {
@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             link.rel = "noopener noreferrer";
             link.textContent = parkplatz.link ? "Weitere Informationen →" : "Standort ansehen →";
 
-            card.append(symbol, title, capacity, description, link);
+            card.append(symbol, title, capacity);
+            if (parkplatz.beschreibung) card.appendChild(description);
+            card.appendChild(link);
             container.appendChild(card);
         });
 
