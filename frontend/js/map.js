@@ -67,30 +67,11 @@ fetch("data/posten.json")
             const marker = L.marker(
                 [punkt.lat, punkt.lng],
                 {
-                    icon: postenIcon
+                    icon: postenIcon,
+                    interactive: false,
+                    keyboard: false
                 }
             );
-
-
-            // Popup erstellen
-            marker.bindPopup(`
-                <a
-                    href="#posten-${punkt.nummer}"
-                    class="posten-popup-link"
-                >
-                    <strong>
-                        Posten ${punkt.nummer}
-                    </strong>
-
-                    <span>
-                        ${punkt.name}
-                    </span>
-
-                    <small>
-                        Zum Posten →
-                    </small>
-                </a>
-            `);
 
 
             // Marker zur Gruppe hinzufügen
