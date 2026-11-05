@@ -106,7 +106,7 @@ fetch("data/posten.json")
 
 
 // Parkplätze separat laden und mit blauen P-Markern anzeigen.
-// Ein optionaler "link" in parkplaetze.json führt zu weiteren Informationen.
+// Jeder Parkplatz verlinkt auf seinen Eintrag der Parkplatz-Unterseite.
 fetch("data/parkplaetze.json")
     .then(response => {
         if (!response.ok) throw new Error("parkplaetze.json konnte nicht geladen werden.");
@@ -143,28 +143,11 @@ fetch("data/parkplaetze.json")
                 popup.appendChild(description);
             }
 
-            // Nur sichere Weblinks erlauben; solange kein Link hinterlegt ist,
-            // kann der Parkplatz über einen OpenStreetMap-Link geöffnet werden.
-            let destination = "";
-            if (parkplatz.link) {
-                try {
-                    const url = new URL(parkplatz.link, window.location.href);
-                    if (url.protocol === "https:" || url.protocol === "http:") {
-                        destination = url.href;
-                    }
-                } catch (error) {
-                    console.warn("Ungültiger Parkplatz-Link:", parkplatz.id);
-                }
-            }
-            if (!destination) {
-                destination = `https://www.openstreetmap.org/?mlat=${parkplatz.lat}&mlon=${parkplatz.lng}#map=18/${parkplatz.lat}/${parkplatz.lng}`;
-            }
-
             const link = document.createElement("a");
-            link.href = destination;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = parkplatz.link ? "Weitere Informationen →" : "Standort ansehen →";
+            // Die IDs stammen aus unseren Parkplatzdaten (parkplatz-1 bis parkplatz-6).
+            const parkplatzId = /^parkplatz-[1-6]$/.test(parkplatz.id) ? parkplatz.id : "";
+            link.href = parkplatzId ? `parkplaetze.html#${parkplatzId}` : "parkplaetze.html";
+            link.textContent = "Parkplatzdetails ansehen →";
             popup.appendChild(link);
 
             marker.bindPopup(popup);
