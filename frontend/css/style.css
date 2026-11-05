@@ -282,7 +282,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    cursor: default;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
     transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -304,16 +304,6 @@ header {
     line-height: 1;
     margin-top: 2px;
 }
-
-.posten-marker:hover {
-    transform: scale(1.15);
-    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
-}
-
-.posten-marker:hover::before {
-    background: #ffd873;
-}
-
 
 /* =========================================================
    POSTEN
