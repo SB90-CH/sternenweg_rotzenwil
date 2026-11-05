@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informationen zu den Parkplätzen am Sternenweg Rotzenwil mit Standorten und Kartenlinks.">
+    <title>Parkplätze – Sternenweg Rotzenwil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Hauptnavigation">
+            <a href="index.html#start" class="logo">✦ Sternenweg Rotzenwil</a>
+            <ul class="nav-links">
+                <li><a href="index.html#start">Start</a></li>
+                <li><a href="index.html#sternweg">Der Sternenweg</a></li>
+                <li><a href="index.html#karte">Karte</a></li>
+                <li><a href="parkplaetze.html" aria-current="page">Parkplätze</a></li>
+                <li><a href="index.html#impressionen">Impressionen</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="parking-hero">
+            <div class="container">
+                <p class="hero-kicker">Dein Besuch</p>
+                <h1>Parkplätze</h1>
+                <p>Hier findest du die erfassten Parkmöglichkeiten in der Umgebung des Sternenwegs Rotzenwil. Über die Standortlinks kannst du die Positionen auf OpenStreetMap ansehen.</p>
+                <a class="button" href="index.html#karte">Zur Sternenweg-Karte</a>
+            </div>
+        </section>
+        <section class="section" aria-labelledby="parking-title">
+            <div class="container">
+                <h2 id="parking-title">Parkmöglichkeiten</h2>
+                <p>Wähle einen Standort aus, um ihn auf der Karte zu öffnen. Weitere Informationen zu den einzelnen Parkplätzen können hier später ergänzt werden.</p>
+                <div id="parkplatz-liste" class="parking-grid" aria-live="polite">
+                    <p>Parkplätze werden geladen …</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer><div class="container"><p>© <span id="year"></span> Sternenweg Rotzenwil</p></div></footer>
+    <script src="js/main.js"></script>
+    <script src="js/parkplaetze.js"></script>
+</body>
+</html>
