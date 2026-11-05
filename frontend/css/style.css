@@ -276,46 +276,42 @@ header {
 /* Eigentliche nummerierte Markierung */
 
 .posten-marker {
-    width: 42px;
-    height: 42px;
-
+    position: relative;
+    width: 48px;
+    height: 48px;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    background-color: #f4c95d;
-
-    color: #0b1f33;
-
-    border:
-        3px solid #ffffff;
-
-    border-radius: 50%;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    line-height: 1;
-
-    box-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.35);
-
     cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        background-color 0.2s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
+.posten-marker::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #f4c95d;
+    clip-path: polygon(50% 0%, 62% 34%, 98% 35%, 70% 57%, 80% 93%, 50% 72%, 20% 93%, 30% 57%, 2% 35%, 38% 34%);
+}
 
-/* Effekt beim Darüberfahren */
+.posten-marker-nummer {
+    position: relative;
+    z-index: 1;
+    color: #0b1f33;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    margin-top: 2px;
+}
 
 .posten-marker:hover {
     transform: scale(1.15);
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
+}
 
-    background-color: #ffd873;
+.posten-marker:hover::before {
+    background: #ffd873;
 }
 
 
