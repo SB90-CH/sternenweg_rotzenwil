@@ -50,7 +50,7 @@ fetch("data/posten.json")
 
                 html: `
                     <div class="posten-marker">
-                        ${punkt.nummer}
+                        <span class="posten-marker-nummer">${punkt.nummer}</span>
                     </div>
                 `,
 
