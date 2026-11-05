@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             title.textContent = parkplatz.name && parkplatz.name !== "Parkplatz"
                 ? parkplatz.name : `Parkplatz ${index + 1}`;
 
+            const capacity = document.createElement("p");
+            capacity.className = "parking-capacity";
+            capacity.textContent = `${parkplatz.anzahl_plaetze} ${parkplatz.anzahl_plaetze === 1 ? "Stellplatz" : "Stellplätze"}`;
+
             const description = document.createElement("p");
             description.textContent = parkplatz.beschreibung || "Standort und Anreise auf der Karte ansehen.";
 
@@ -47,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             link.rel = "noopener noreferrer";
             link.textContent = parkplatz.link ? "Weitere Informationen →" : "Standort ansehen →";
 
-            card.append(symbol, title, description, link);
+            card.append(symbol, title, capacity, description, link);
             container.appendChild(card);
         });
     } catch (error) {
