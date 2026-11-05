@@ -618,3 +618,12 @@ footer {
     font-weight: 700;
     font-size: 1.1rem;
 }
+
+/* Zielposition für Links aus den Parkplatzmarkern */
+.parking-card {
+    scroll-margin-top: 110px;
+}
+.parking-card:target {
+    outline: 3px solid #f4c95d;
+    outline-offset: 3px;
+}
