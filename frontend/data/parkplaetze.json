@@ -1,50 +1,56 @@
 [
     {
         "id": "parkplatz-1",
-        "name": "Parkplatz",
+        "name": "P1 Rotzenwil",
         "lat": 47.51497301032939,
         "lng": 9.296386044038279,
-        "beschreibung": "",
-        "link": ""
+        "beschreibung": "Wochenende ganzer Tag, Wochentage ab 18.00 Uhr",
+        "link": "",
+        "anzahl_plaetze": 5
     },
     {
         "id": "parkplatz-2",
-        "name": "Parkplatz",
+        "name": "P2 Rotzenwil",
         "lat": 47.514922150364356,
         "lng": 9.296867287498387,
         "beschreibung": "",
-        "link": ""
+        "link": "",
+        "anzahl_plaetze": 2
     },
     {
         "id": "parkplatz-3",
-        "name": "Parkplatz",
+        "name": "P3 Rotzenwil",
         "lat": 47.51517975670939,
         "lng": 9.297888261545506,
         "beschreibung": "",
-        "link": ""
+        "link": "",
+        "anzahl_plaetze": 6
     },
     {
         "id": "parkplatz-4",
-        "name": "Parkplatz",
+        "name": "P4 Rotzenwil",
         "lat": 47.51405023567138,
         "lng": 9.297034319123556,
         "beschreibung": "",
-        "link": ""
+        "link": "",
+        "anzahl_plaetze": 4
     },
     {
         "id": "parkplatz-5",
-        "name": "Parkplatz",
+        "name": "P5 Hudelmoos-Parkplatz Oberegg",
         "lat": 47.508312614441834,
         "lng": 9.283726763607778,
-        "beschreibung": "",
-        "link": ""
+        "beschreibung": "Öffentlicher Parkplatz",
+        "link": "",
+        "anzahl_plaetze": 10
     },
     {
         "id": "parkplatz-6",
-        "name": "Parkplatz",
+        "name": "P6: Hudelmoos-Parkplatz Bürgerhütte",
         "lat": 47.52382924550421,
         "lng": 9.283872477144005,
-        "beschreibung": "",
-        "link": ""
+        "beschreibung": "Öffentlicher Parkplatz",
+        "link": "",
+        "anzahl_plaetze": 15
     }
 ]
