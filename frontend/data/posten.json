@@ -2,22 +2,22 @@
     {
         "nummer": 1,
         "name": "Posten 1",
-        "lat": 47.5149345,
-        "lng": 9.2962445,
+        "lat": 47.514934200829295,
+        "lng": 9.296291953024912,
         "beschreibung": ""
     },
     {
         "nummer": 2,
         "name": "Sternentaler",
-        "lat": 47.5149390,
-        "lng": 9.2937150,
+        "lat": 47.514897969644736,
+        "lng": 9.293802862982535,
         "beschreibung": "Hoch oben im Himmel steht ein Mädchen, während goldene Sterntaler auf sie herabregnen. Die Szene erinnert an das Märchen „Die Sterntaler“ der Brüder Grimm, in dem ein armes Mädchen aus Güte alles verschenkt, was es besitzt. Am Ende wird seine Selbstlosigkeit belohnt und die Sterne fallen als goldene Taler und Sterne vom Himmel."
     },
     {
         "nummer": 3,
         "name": "Posten 3",
         "lat": 47.5145557,
-        "lng": 9.2914390,
+        "lng": 9.291439,
         "beschreibung": ""
     },
     {
@@ -51,7 +51,7 @@
     {
         "nummer": 8,
         "name": "Posten 8",
-        "lat": 47.5190610,
+        "lat": 47.519061,
         "lng": 9.2870864,
         "beschreibung": ""
     },
