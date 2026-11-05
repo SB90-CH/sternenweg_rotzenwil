@@ -602,3 +602,19 @@ footer {
     .parking-grid { grid-template-columns: 1fr; }
     .parking-hero { padding: 65px 0; }
 }
+
+/* Hinweise und Kapazitätsangaben auf der Parkplatzseite */
+.parking-notice {
+    background: #f4f7f9;
+    border-left: 4px solid #1769c2;
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin-bottom: 30px;
+    max-width: 850px;
+}
+.parking-notice h3 { color: #123a5a; margin-bottom: 8px; }
+.parking-capacity {
+    color: #123a5a;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
