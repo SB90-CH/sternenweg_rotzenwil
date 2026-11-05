@@ -645,3 +645,19 @@ footer {
 @media (max-width: 700px) {
     .impressionen-photo img { height: auto; aspect-ratio: 3 / 4; }
 }
+
+/* Neues Sternenweg-Logo im Menü */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: clamp(170px, 22vw, 270px);
+}
+.navbar .logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+@media (max-width: 700px) {
+    .navbar .logo { width: min(260px, 75vw); }
+}
