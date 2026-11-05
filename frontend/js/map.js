@@ -122,3 +122,83 @@ fetch("data/posten.json")
         );
 
     });
+
+
+// Parkplätze separat laden und mit blauen P-Markern anzeigen.
+// Ein optionaler "link" in parkplaetze.json führt zu weiteren Informationen.
+fetch("data/parkplaetze.json")
+    .then(response => {
+        if (!response.ok) throw new Error("parkplaetze.json konnte nicht geladen werden.");
+        return response.json();
+    })
+    .then(parkplaetze => {
+        const parkplatzGroup = L.featureGroup();
+        parkplaetze.forEach(parkplatz => {
+            if (!Number.isFinite(parkplatz.lat) || !Number.isFinite(parkplatz.lng)) return;
+
+            const icon = L.divIcon({
+                className: "parkplatz-marker-wrapper",
+                html: '<div class="parkplatz-marker" aria-hidden="true">P</div>',
+                iconSize: [42, 42],
+                iconAnchor: [21, 21],
+                popupAnchor: [0, -21]
+            });
+
+            const marker = L.marker([parkplatz.lat, parkplatz.lng], {
+                icon,
+                title: parkplatz.name || "Parkplatz",
+                alt: "Parkplatz"
+            });
+
+            const popup = document.createElement("div");
+            popup.className = "parkplatz-popup";
+            const heading = document.createElement("strong");
+            heading.textContent = parkplatz.name || "Parkplatz";
+            popup.appendChild(heading);
+
+            if (parkplatz.beschreibung) {
+                const description = document.createElement("p");
+                description.textContent = parkplatz.beschreibung;
+                popup.appendChild(description);
+            }
+
+            // Nur sichere Weblinks erlauben; solange kein Link hinterlegt ist,
+            // kann der Parkplatz über einen OpenStreetMap-Link geöffnet werden.
+            let destination = "";
+            if (parkplatz.link) {
+                try {
+                    const url = new URL(parkplatz.link, window.location.href);
+                    if (url.protocol === "https:" || url.protocol === "http:") {
+                        destination = url.href;
+                    }
+                } catch (error) {
+                    console.warn("Ungültiger Parkplatz-Link:", parkplatz.id);
+                }
+            }
+            if (!destination) {
+                destination = `https://www.openstreetmap.org/?mlat=${parkplatz.lat}&mlon=${parkplatz.lng}#map=18/${parkplatz.lat}/${parkplatz.lng}`;
+            }
+
+            const link = document.createElement("a");
+            link.href = destination;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = parkplatz.link ? "Weitere Informationen →" : "Standort ansehen →";
+            popup.appendChild(link);
+
+            marker.bindPopup(popup);
+            marker.addTo(parkplatzGroup);
+        });
+        parkplatzGroup.addTo(map);
+        // Kartenausschnitt umfasst auch weiter entfernte Parkplätze.
+        if (parkplatzGroup.getLayers().length) {
+            const combinedBounds = L.latLngBounds(parkplatzGroup.getBounds());
+            map.eachLayer(layer => {
+                if (layer instanceof L.Marker && !parkplatzGroup.hasLayer(layer)) {
+                    combinedBounds.extend(layer.getLatLng());
+                }
+            });
+            map.fitBounds(combinedBounds, { padding: [40, 40] });
+        }
+    })
+    .catch(error => console.error("Fehler beim Laden der Parkplätze:", error));
