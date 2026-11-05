@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (!Number.isFinite(parkplatz.lat) || !Number.isFinite(parkplatz.lng)) return;
             const card = document.createElement("article");
             card.className = "parking-card";
+            if (/^parkplatz-[1-6]$/.test(parkplatz.id)) card.id = parkplatz.id;
 
             const symbol = document.createElement("span");
             symbol.className = "parking-symbol";
@@ -54,6 +55,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             card.append(symbol, title, capacity, description, link);
             container.appendChild(card);
         });
+
+        // Direkte Links von den Kartenmarkern zur passenden Parkplatzkarte.
+        if (location.hash) {
+            const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (target) target.scrollIntoView({ block: "start" });
+        }
     } catch (error) {
         console.error(error);
         container.textContent = "Die Parkplätze konnten leider nicht geladen werden.";
