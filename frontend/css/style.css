@@ -659,5 +659,16 @@ footer {
     height: auto;
 }
 @media (max-width: 700px) {
-    .navbar .logo { width: min(260px, 75vw); }
+    .navbar {
+        align-items: center;
+    }
+    .navbar .logo {
+        width: min(260px, 75vw);
+        margin-inline: auto;
+        justify-content: center;
+    }
+    .navbar .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
 }
