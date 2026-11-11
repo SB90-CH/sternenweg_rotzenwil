@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sternenweg-rotzenwil.ch/sitemap.xml
