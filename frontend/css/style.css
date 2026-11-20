@@ -681,3 +681,23 @@ footer {
 .faq-item h2 { font-size: clamp(1.3rem, 3vw, 1.65rem); margin-bottom: 10px; }
 .faq-item p + p { margin-top: 14px; }
 .faq-item a { color: #1769c2; font-weight: 700; }
+
+/* Datenschutz und freiwillige Analytics-Einwilligung */
+footer a, .footer-settings { color: #fff; }
+.footer-privacy { margin-top: 12px; }
+.footer-settings { border: 0; background: none; font: inherit; text-decoration: underline; cursor: pointer; }
+.privacy-content { max-width: 850px; }
+.privacy-content h2 { font-size: 1.5rem; margin: 30px 0 10px; }
+.privacy-content h2:first-child { margin-top: 0; }
+.privacy-content p { margin-bottom: 14px; }
+.privacy-content a { color: #1769c2; }
+.privacy-settings-button { background: #0b1f33; color: white; padding: 12px 18px; border: 0; border-radius: 8px; cursor: pointer; }
+.consent-banner[hidden] { display: none !important; }
+.consent-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000; padding: 18px; background: #fff; color: #263238; box-shadow: 0 -4px 28px rgba(0,0,0,.22); border-top: 3px solid #f4c95d; }
+.consent-inner { max-width: 1100px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.consent-inner p { margin-top: 6px; }
+.consent-inner a { color: #1769c2; }
+.consent-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.consent-actions button { cursor: pointer; border-radius: 8px; padding: 12px 20px; font: inherit; font-weight: bold; border: 1px solid #0b1f33; background: #fff; color: #0b1f33; }
+#analytics-accept { background: #0b1f33; color: #fff; }
+@media (max-width: 700px) { .consent-inner { flex-direction: column; align-items: stretch; } .consent-actions button { flex: 1; } }
