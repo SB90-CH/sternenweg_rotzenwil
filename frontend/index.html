@@ -188,6 +188,7 @@
 
         </div>
 
+    <p class="footer-privacy"><a href="datenschutz.html">Datenschutz</a> · <button type="button" class="footer-settings" data-analytics-settings>Cookie-Einstellungen</button></p>
     </footer>
 
 
@@ -200,5 +201,9 @@
     <script src="js/main.js"></script>
     <script src="js/map.js"></script>
 
+    <div id="analytics-consent-banner" class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" hidden>
+        <div class="consent-inner"><div><strong>Freiwillige Besucherstatistik</strong><p>Mit deiner Zustimmung verwenden wir Google Analytics, um zu verstehen, wie unsere Website genutzt wird. Ohne Zustimmung bleibt das Tracking ausgeschaltet. <a href="datenschutz.html">Mehr zum Datenschutz</a>.</p></div><div class="consent-actions"><button type="button" id="analytics-decline">Ablehnen</button><button type="button" id="analytics-accept">Akzeptieren</button></div></div>
+    </div>
+    <script src="js/analytics-consent.js"></script>
 </body>
 </html>
